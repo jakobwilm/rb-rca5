@@ -11,11 +11,8 @@ width=$(identify -format "%w" "floor_plan.png")
 halfwidth=$(echo "scale=1; $width/2.0" | bc)
 height=$(identify -format "%h" "floor_plan.png")
 halfheight=$(echo "scale=1; $height/2.0" | bc)
-pstoedit -dt -xshift -$width -yshift -$height -f "dxf: -polyaslines -mm" tmp.eps -rdb tmp.dxf
+pstoedit -dt -xshift -$width -yshift -$height -f "dxf: -polyaslines -mm" tmp.eps tmp.dxf
 
 # Extrude the geometry
-openscad -o tmp.off floor_plan.scad
+openscad -o floor_plan.stl floor_plan.scad
 
-# Convert to Collada file
-name=$(echo "$inputPng" | cut -d'.' -f1)
-ctmconv tmp.off floor_plan.stl

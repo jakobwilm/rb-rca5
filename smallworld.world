@@ -43,28 +43,14 @@
         <pose>0.2 0 .3 0 0 0</pose>
       </include>
 
-      <joint name="camera_joint" type="revolute">
-        <parent>pioneer2dx::pioneer2dx::chassis</parent>
-        <child>pioneer2dx::camera::link</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>0</upper>
-          </limit>
-        </axis>
+      <joint name="camera_joint" type="fixed">
+        <parent>pioneer2dx::chassis</parent>
+        <child>camera::link</child>
       </joint>
 
-      <joint name="laser_joint" type="revolute">
-        <parent>pioneer2dx::pioneer2dx::chassis</parent>
-        <child>pioneer2dx::hokuyo::link</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>0</upper>
-          </limit>
-        </axis>
+      <joint name="laser_joint" type="fixed">
+        <parent>pioneer2dx::chassis</parent>
+        <child>hokuyo::link</child>
       </joint>
 
     </model>

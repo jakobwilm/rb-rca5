@@ -7,4 +7,4 @@ SOURCES += main.cpp
 
 CONFIG += link_pkgconfig
 PKGCONFIG += gazebo
-PKGCONFIG += opencv
+PKGCONFIG += opencv4
